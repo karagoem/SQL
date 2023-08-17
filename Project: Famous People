@@ -1,0 +1,54 @@
+/* This project features creating tables and joins. My first table "Famous_People" features a range of famous people. My second table "Movies" explores 15 films and their release dates, along with the "actor_id" of a featured film actor*/
+
+CREATE TABLE Famous_People (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    age INTEGER);
+    
+INSERT INTO Famous_People (name, age) VALUES ("Angelina Jolie",48);
+INSERT INTO Famous_People (name, age) VALUES ("Sarah Michelle Geller", 46);
+INSERT INTO Famous_People (name, age) VALUES ("Freddie Prinze Jr.", 47);
+INSERT INTO Famous_People (name, age) VALUES ("Victoria Beckham", 49);
+INSERT INTO Famous_People (name, age) VALUES ("David Beckham", 48);
+INSERT INTO Famous_People (name, age) VALUES ("John Legend", 44);
+INSERT INTO Famous_People (name, age) VALUES ("Chrissy Teigen", 37);
+INSERT INTO Famous_People (name, age) VALUES ("Beyonce", 41);
+INSERT INTO Famous_People (name, age) VALUES ("Jay-Z", 53);
+INSERT INTO Famous_People (name, age) VALUES ("Pedro Pascal", 48);
+INSERT INTO Famous_People (name, age) VALUES ("Alicia Silverstone", 46);
+INSERT INTO Famous_People (name, age) VALUES ("Scarlette Johansson", 38);
+INSERT INTO Famous_People (name, age) VALUES ("Cillian Murphy", 47);
+INSERT INTO Famous_People (name, age) VALUES ("Robert Downey Jr.", 58);
+INSERT INTO Famous_People (name, age) VALUES ("Margot Robbie", 33);
+INSERT INTO Famous_People (name, age) VALUES ("Ryan Reynolds", 46);
+INSERT INTO Famous_People (name, age) VALUES ("Blake Lively", 35);
+
+SELECT * FROM famous_people;
+
+CREATE TABLE Movies
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+movie_name TEXT,
+release_year INTEGER,
+actor_id INTEGER); 
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Salt",2010,1);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Austin Powers: Goldmember",2002,8);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Bend It Like Beckham",2003,5);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Cruel Intentions",1999,2);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("She's All That",1999,3);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Kingsmen: The Golden Circle", 2017,10);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Hotel Transylvania 3: Summer Vacation", 2018,7);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("La La Land", 2016,6);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Clueless", 1995,11);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Oppenheimer", 2023,13);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Barbie", 2023,15);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Deadpool", 2016,16);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Gladiator", 2000,17);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Black Widow", 2021,12);
+INSERT INTO Movies (movie_name, release_year, actor_id) VALUES ("Iron Man", 2008,14);
+
+/* Here you can see the successful join, You can see the movie, one of the actors in the movie, and it's release year*/ 
+
+SELECT movies.movie_name as "Movie", Actors.name as "Actor", movies.release_year as "Date" 
+FROM movies
+JOIN famous_people as Actors
+ON movies.actor_id = actors.id;
